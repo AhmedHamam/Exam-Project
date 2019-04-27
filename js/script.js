@@ -65,48 +65,68 @@ $(document).ready(function() {
         $('#myModalSignUp').modal('show')
     });
     btnSignUp.click(function() {
-        if (txt_NameSignUp.val() == '') {
-            alert('Name is Required');
-        } else if (txt_EmailSignUp.val() == '') {
-            alert('Email is Required')
-        } else if (txt_PasswordSignUp.val() == '') {
-            alert('Password is Required')
-        } else if (txt_FileUpload.val() == '') {
-            alert('Image is Required')
-        } else {
-            var Saved = JSON.parse(localStorage.getItem('users'));
-
-            if (Saved == null) {
-                userObject = [{
-                    'Id': usersJson.length + 1,
-                    'Name': txt_NameSignUp.val(),
-                    'Email': txt_EmailSignUp.val(),
-                    'Password': txt_PasswordSignUp.val(),
-                    'Image': txt_FileUpload.val()
-                }]
-                usersJson.push(userObject);
-                localStorage.setItem('users', JSON.stringify(usersJson));
-
+            if (txt_NameSignUp.val() == '') {
+                alert('Name is Required');
+            } else if (txt_EmailSignUp.val() == '') {
+                alert('Email is Required')
+            } else if (txt_PasswordSignUp.val() == '') {
+                s
+                alert('Password is Required')
+            } else if (txt_FileUpload.val() == '') {
+                alert('Image is Required')
             } else {
-                userObject = [{
-                    'Id': Saved.length + 1,
-                    'Name': txt_NameSignUp.val(),
-                    'Email': txt_EmailSignUp.val(),
-                    'Password': txt_PasswordSignUp.val(),
-                    'Image': txt_FileUpload.val()
-                }]
-                Saved.push(userObject);
-                // Put the object into storage
-                localStorage.setItem('users', JSON.stringify(Saved));
+                var Saved = JSON.parse(localStorage.getItem('users'));
+
+                if (Saved == null) {
+                    userObject = [{
+                        'Id': usersJson.length + 1,
+                        'Name': txt_NameSignUp.val(),
+                        'Email': txt_EmailSignUp.val(),
+                        'Password': txt_PasswordSignUp.val(),
+                        'Image': txt_FileUpload.val()
+                    }]
+                    usersJson.push(userObject);
+                    localStorage.setItem('users', JSON.stringify(usersJson));
+                    $('#myModalSignUp').modal('hide');
+                    toastr.success("Sign Up  Successfully", "Done");
+                } else {
+                    userObject = [{
+                        'Id': Saved.length + 1,
+                        'Name': txt_NameSignUp.val(),
+                        'Email': txt_EmailSignUp.val(),
+                        'Password': txt_PasswordSignUp.val(),
+                        'Image': txt_FileUpload.val()
+                    }]
+                    for (var i = 0; i < Saved.length; i++) {
+                        console.log(txt_EmailSignUp.val());
+                        console.log(Saved[i].map(a => a.Email));
+                        // console.log(txt_EmailSignUp.val());
+                        if (txt_EmailSignUp.val() == Saved[i].map(a => a.Email)) {
+                            console.log(txt_EmailSignUp.val());
+                            console.log(Saved[i].Email);
+                            toastr.error("Sign Up  Error", "Ops !!");
+                            txt_EmailSignUp.val('');
+                            break;
+                        } else {
+                            Saved.push(userObject);
+                            // Put the object into storage
+                            localStorage.setItem('users', JSON.stringify(Saved));
+                            $('#myModalSignUp').modal('hide');
+                            toastr.success("Sign Up  Successfully", "Done");
+                            break;
+                        }
+                    }
+
+                }
+
 
             }
 
-            $('#myModalSignUp').modal('hide');
-            toastr.success("Sign Up  Successfully", "Done");
+
         }
 
 
-    })
+    )
 
 
     // $("label.btn").on('click', function() {
