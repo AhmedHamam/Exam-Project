@@ -108,4 +108,37 @@ $(document).ready(function() {
 
     })
 
+
+    // $("label.btn").on('click', function() {
+    //     var choice = $(this).find('input:radio').val();
+
+
+    // $('#quiz').fadeOut();
+    // setTimeout(function() {
+    // if ($(this).find('input:radio').is(':checked')) {
+    //     console.log("checked")
+    //     $(this).attr('class', 'btn btn-lg btn-warning btn-block ')
+
+    // } else {
+    //     $(this).attr('class', 'btn btn-lg btn-primary btn-block ')
+
+    // }
+    // $('.btn-primary.active').attr('class', 'btn btn-lg checked btn-block ')
+    // console.log($(this).attr('class'));
+    // $("#answer").html($(this).checking(choice));
+
+
+    // $('#quiz').show();
+    // $('#loadbar').fadeOut();
+    /* something else */
+    // }, 1500);
+    // });
+    // $ans = 3;
+
+    // $.fn.checking = function(ck) {
+    //     if (ck != $ans)
+    //         return 'INCORRECT';
+    //     else
+    //         return 'CORRECT';
+    // };
 });
