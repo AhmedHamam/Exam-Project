@@ -65,60 +65,57 @@ $(document).ready(function() {
         $('#myModalSignUp').modal('show')
     });
     btnSignUp.click(function() {
-            if (txt_NameSignUp.val() == '') {
-                alert('Name is Required');
-            } else if (txt_EmailSignUp.val() == '') {
-                alert('Email is Required')
-            } else if (txt_PasswordSignUp.val() == '') {
-                s
-                alert('Password is Required')
-            } else if (txt_FileUpload.val() == '') {
-                alert('Image is Required')
+        if (txt_NameSignUp.val() == '') {
+            alert('Name is Required');
+        } else if (txt_EmailSignUp.val() == '') {
+            alert('Email is Required')
+        } else if (txt_PasswordSignUp.val() == '') {
+            s
+            alert('Password is Required')
+        } else if (txt_FileUpload.val() == '') {
+            alert('Image is Required')
+        } else {
+            var Saved = JSON.parse(localStorage.getItem('users'));
+
+            if (Saved == null) {
+                userObject = [{
+                    'Id': usersJson.length + 1,
+                    'Name': txt_NameSignUp.val(),
+                    'Email': txt_EmailSignUp.val(),
+                    'Password': txt_PasswordSignUp.val(),
+                    'Image': txt_FileUpload.val()
+                }]
+                usersJson.push(userObject);
+                localStorage.setItem('users', JSON.stringify(usersJson));
+                $('#myModalSignUp').modal('hide');
+                toastr.success("Sign Up  Successfully", "Done");
             } else {
-                var Saved = JSON.parse(localStorage.getItem('users'));
-
-                if (Saved == null) {
-                    userObject = [{
-                        'Id': usersJson.length + 1,
-                        'Name': txt_NameSignUp.val(),
-                        'Email': txt_EmailSignUp.val(),
-                        'Password': txt_PasswordSignUp.val(),
-                        'Image': txt_FileUpload.val()
-                    }]
-                    usersJson.push(userObject);
-                    localStorage.setItem('users', JSON.stringify(usersJson));
-                    $('#myModalSignUp').modal('hide');
-                    toastr.success("Sign Up  Successfully", "Done");
-                } else {
-                    userObject = [{
-                        'Id': Saved.length + 1,
-                        'Name': txt_NameSignUp.val(),
-                        'Email': txt_EmailSignUp.val(),
-                        'Password': txt_PasswordSignUp.val(),
-                        'Image': txt_FileUpload.val()
-                    }]
-                    for (var i = 0; i < Saved.length; i++) {
+                userObject = [{
+                    'Id': Saved.length + 1,
+                    'Name': txt_NameSignUp.val(),
+                    'Email': txt_EmailSignUp.val(),
+                    'Password': txt_PasswordSignUp.val(),
+                    'Image': txt_FileUpload.val()
+                }]
+                for (var i = 0; i < Saved.length; i++) {
+                    console.log(txt_EmailSignUp.val());
+                    console.log(Saved[i].map(a => a.Email));
+                    // console.log(txt_EmailSignUp.val());
+                    if (txt_EmailSignUp.val() == Saved[i].map(a => a.Email)) {
                         console.log(txt_EmailSignUp.val());
-                        console.log(Saved[i].map(a => a.Email));
-                        // console.log(txt_EmailSignUp.val());
-                        if (txt_EmailSignUp.val() == Saved[i].map(a => a.Email)) {
-                            console.log(txt_EmailSignUp.val());
-                            console.log(Saved[i].Email);
-                            toastr.error("Sign Up  Error", "Ops !!");
-                            txt_EmailSignUp.val('');
-                            break;
-                        } else {
-                            Saved.push(userObject);
-                            // Put the object into storage
-                            localStorage.setItem('users', JSON.stringify(Saved));
-                            $('#myModalSignUp').modal('hide');
-                            toastr.success("Sign Up  Successfully", "Done");
-                            break;
-                        }
+                        console.log(Saved[i].Email);
+                        toastr.error("Sign Up  Error", "Ops !!");
+                        txt_EmailSignUp.val('');
+                        break;
+                    } else {
+                        Saved.push(userObject);
+                        // Put the object into storage
+                        localStorage.setItem('users', JSON.stringify(Saved));
+                        $('#myModalSignUp').modal('hide');
+                        toastr.success("Sign Up  Successfully", "Done");
+                        break;
                     }
-
                 }
-
 
             }
 
@@ -126,8 +123,7 @@ $(document).ready(function() {
         }
 
 
-    )
-
+    })
 
     // $("label.btn").on('click', function() {
     //     var choice = $(this).find('input:radio').val();
@@ -161,4 +157,89 @@ $(document).ready(function() {
     //     else
     //         return 'CORRECT';
     // };
+
+    $('#courseName').html(courseName);
+
+    //Fill Question In HTML
+    var questionhtml = document.querySelectorAll('.question-content');
+    var choiseshtml0 = document.querySelectorAll('.answer0');
+    var choiseshtml1 = document.querySelectorAll('.answer1');
+    var choiseshtml2 = document.querySelectorAll('.answer2');
+    var choiseshtml3 = document.querySelectorAll('.answer3');
+    var choiseshtml4 = document.querySelectorAll('.answer4');
+    var choiseshtml5 = document.querySelectorAll('.answer5');
+    var choiseshtml6 = document.querySelectorAll('.answer6');
+    var choiseshtml7 = document.querySelectorAll('.answer7');
+    var choiseshtml8 = document.querySelectorAll('.answer8');
+    var choiseshtml9 = document.querySelectorAll('.answer9');
+
+    for (let i = 0; i < questionhtml.length; i++) {
+        const element = questionData[i].question;
+        questionhtml[i].innerHTML = element;
+        if (i == 0) {
+            fillChoices(choiseshtml0, i);
+        }
+        if (i == 1) {
+            fillChoices(choiseshtml1, i);
+        }
+        if (i == 2) {
+            fillChoices(choiseshtml2, i);
+        }
+        if (i == 3) {
+            fillChoices(choiseshtml3, i);
+        }
+        if (i == 4) {
+            fillChoices(choiseshtml4, i);
+        }
+        if (i == 5) {
+            fillChoices(choiseshtml5, i);
+        }
+        if (i == 6) {
+            fillChoices(choiseshtml6, i);
+        }
+        if (i == 7) {
+            fillChoices(choiseshtml7, i);
+        }
+        if (i == 8) {
+            fillChoices(choiseshtml8, i);
+        }
+        if (i == 9) {
+            fillChoices(choiseshtml9, i);
+        }
+    }
+
+    function fillChoices(arr, j) {
+        for (let i = 0; i < arr.length; i++) {
+            arr[0].innerHTML = '<span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="1">' + questionData[j].choise1;
+            arr[1].innerHTML = '<span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="2">' + questionData[j].choise2;
+            arr[2].innerHTML = '<span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="3">' + questionData[j].choise3;
+            arr[3].innerHTML = '<span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="4">' + questionData[j].choise4;
+        }
+    }
+    var btnSubmit = $('#btnSubmit');
+    var count = 0;
+    btnSubmit.on('click', function() {
+
+        var active = document.querySelectorAll('.active');
+        if (active.length == 10) {
+            for (let i = 0; i < active.length; i++) {
+                const element = active[i];
+                var choice = $(element).find('input:radio').val();
+                if (choice == questionData[i].answer) {
+                    count += 10;
+
+                }
+
+            }
+            toastr.success("Your Degree is " + count + "%", "Well ");
+            $("label.btn").attr("disabled", "disabled");
+            $('#btnSubmit').attr("disabled", "disabled");
+        } else {
+            toastr.error("Answer All Questions", "Ops !!");
+
+        }
+
+
+    })
+
 });
