@@ -1019,3 +1019,26 @@
     .m_l {
         margin-left: 139px;
     }
+    
+    #timerExam {
+        color: #fff;
+        background-color: #ca1c29;
+        font-size: 28px;
+        width: 201px;
+        height: 65px;
+        border: none;
+    }
+    
+    #normalExam {
+        color: #fff;
+        background-color: #5cb85c;
+        border-color: #4cae4c;
+        font-size: 28px;
+        width: 201px;
+        height: 65px;
+        border: none;
+    }
+    
+    .buttonsDiv {
+        margin: 100px;
+    }

@@ -13,6 +13,9 @@ $(document).ready(function() {
     var txt_FileUpload = $('#txt_FileUpload');
     var btnSignUp = $('#btnSignUp');
     var showModelSignUp = $('#showmodalSignup');
+    // LoginOut
+    var LoginOut = $('#LoginOut');
+    var profile = $('#profile');
 
     // End SignUp
     // json Array of User
@@ -21,6 +24,29 @@ $(document).ready(function() {
     var userObject;
     // Login Status
     var loginStatus = false;
+    if (sessionStorage.getItem("loginStatus") == 'true') {
+
+        showModelLogin.css("display", "none");
+        showModelSignUp.css("display", "none")
+        LoginOut.css("display", "")
+        profile.css("display", "")
+
+
+
+    } else {
+        showModelLogin.css("display", "");
+        showModelSignUp.css("display", "")
+        LoginOut.css("display", "none")
+        profile.css("display", "none")
+            // window.location.href="../html/Home.html";
+    }
+    LoginOut.click(function() {
+        loginStatus = false;
+        sessionStorage.setItem("loginStatus", loginStatus);
+        window.location.reload();
+
+
+    })
     showModelLogin.click(function() {
         $('#myModalLogin').modal('show')
     });
@@ -44,6 +70,11 @@ $(document).ready(function() {
                         loginStatus = true;
                         $('#myModalLogin').modal('hide');
                         toastr.success("Login Successfully", "Done");
+                        sessionStorage.setItem("loginStatus", loginStatus);
+                        showModelLogin.css("display", "none");
+                        showModelSignUp.css("display", "none")
+                        LoginOut.css("display", "")
+                        profile.css("display", "")
 
                         break;
                     }
@@ -70,7 +101,7 @@ $(document).ready(function() {
         } else if (txt_EmailSignUp.val() == '') {
             alert('Email is Required')
         } else if (txt_PasswordSignUp.val() == '') {
-            s
+
             alert('Password is Required')
         } else if (txt_FileUpload.val() == '') {
             alert('Image is Required')
@@ -113,6 +144,13 @@ $(document).ready(function() {
                         localStorage.setItem('users', JSON.stringify(Saved));
                         $('#myModalSignUp').modal('hide');
                         toastr.success("Sign Up  Successfully", "Done");
+                        loginStatus = true;
+                        sessionStorage.setItem("loginStatus", loginStatus);
+
+                        showModelLogin.css("display", "none");
+                        showModelSignUp.css("display", "none")
+                        LoginOut.css("display", "")
+                        profile.css("display", "")
                         break;
                     }
                 }
@@ -125,38 +163,7 @@ $(document).ready(function() {
 
     })
 
-    // $("label.btn").on('click', function() {
-    //     var choice = $(this).find('input:radio').val();
 
-
-    // $('#quiz').fadeOut();
-    // setTimeout(function() {
-    // if ($(this).find('input:radio').is(':checked')) {
-    //     console.log("checked")
-    //     $(this).attr('class', 'btn btn-lg btn-warning btn-block ')
-
-    // } else {
-    //     $(this).attr('class', 'btn btn-lg btn-primary btn-block ')
-
-    // }
-    // $('.btn-primary.active').attr('class', 'btn btn-lg checked btn-block ')
-    // console.log($(this).attr('class'));
-    // $("#answer").html($(this).checking(choice));
-
-
-    // $('#quiz').show();
-    // $('#loadbar').fadeOut();
-    /* something else */
-    // }, 1500);
-    // });
-    // $ans = 3;
-
-    // $.fn.checking = function(ck) {
-    //     if (ck != $ans)
-    //         return 'INCORRECT';
-    //     else
-    //         return 'CORRECT';
-    // };
 
     $('#courseName').html(courseName);
 
@@ -243,3 +250,44 @@ $(document).ready(function() {
     })
 
 });
+
+
+
+
+
+
+
+
+
+// $("label.btn").on('click', function() {
+//     var choice = $(this).find('input:radio').val();
+
+
+// $('#quiz').fadeOut();
+// setTimeout(function() {
+// if ($(this).find('input:radio').is(':checked')) {
+//     console.log("checked")
+//     $(this).attr('class', 'btn btn-lg btn-warning btn-block ')
+
+// } else {
+//     $(this).attr('class', 'btn btn-lg btn-primary btn-block ')
+
+// }
+// $('.btn-primary.active').attr('class', 'btn btn-lg checked btn-block ')
+// console.log($(this).attr('class'));
+// $("#answer").html($(this).checking(choice));
+
+
+// $('#quiz').show();
+// $('#loadbar').fadeOut();
+/* something else */
+// }, 1500);
+// });
+// $ans = 3;
+
+// $.fn.checking = function(ck) {
+//     if (ck != $ans)
+//         return 'INCORRECT';
+//     else
+//         return 'CORRECT';
+// };
