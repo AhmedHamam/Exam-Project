@@ -53,7 +53,7 @@ window.onload=function ()
    var input_files=  document.querySelector('input[type="file"]');
     input_files.onchange=previewFile;
     function previewFile() 
-    {       
+    {       alert(input_files.value)
           arr_course_videos=[];
         //   alert(input_files.files.length)
          for(var i=0;i<input_files.files.length;i++)
@@ -156,34 +156,34 @@ function fun_save_course()
 var x=0;
 function btn_next_Clik()
 {   
-    alert(arr_courses[0].questions.length)
-    alert(arr_courses[0].videos.length)
+    // alert(arr_courses[0].questions.length)
+    // alert(arr_courses[0].videos.length)
  
 
-    var preview = document.querySelector('video');
+    // var preview = document.querySelector('video');
 
-    if(x<arr_courses[0].videos.length)
-    {
-        var file = arr_courses[0].videos[x];
-        x++;
-        var reader  = new FileReader();
-        reader.onloadend = function ()
-        {
-        preview.src = reader.result;
-        }
-        if (file) 
-        {
-        reader.readAsDataURL(file);
-        } 
-        else 
-        {
-        preview.src = "";
-        }
-    }
-    else
-    {
-        x=0;
-    }
+    // if(x<arr_courses[0].videos.length)
+    // {
+    //     var file = arr_courses[0].videos[x];
+    //     x++;
+    //     var reader  = new FileReader();
+    //     reader.onloadend = function ()
+    //     {
+    //     preview.src = reader.result;
+    //     }
+    //     if (file) 
+    //     {
+    //     reader.readAsDataURL(file);
+    //     } 
+    //     else 
+    //     {
+    //     preview.src = "";
+    //     }
+    // }
+    // else
+    // {
+    //     x=0;
+    // }
   
      
     
