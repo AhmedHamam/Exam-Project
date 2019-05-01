@@ -42,6 +42,7 @@ window.onload = function() {
     //==============================================================================    
 
     //==============================================================================
+<<<<<<< HEAD
 
 
 
@@ -52,6 +53,18 @@ window.onload = function() {
 
     function previewFile() {
         arr_course_videos = [];
+=======
+   
+   
+   
+   //=========================this funcation to get the path of the video===================================
+    
+   var input_files=  document.querySelector('input[type="file"]');
+    input_files.onchange=previewFile;
+    function previewFile() 
+    {       alert(input_files.value)
+          arr_course_videos=[];
+>>>>>>> 8847550a4bc700f0c8985d06299dbf09b27881b5
         //   alert(input_files.files.length)
         for (var i = 0; i < input_files.files.length; i++) {
             var file = input_files.files[i];
@@ -148,15 +161,25 @@ function fun_save_course() {
     localStorage.setItem("courses", JSON.stringify(arr_courses));
 }
 
+<<<<<<< HEAD
 var x = 0;
 
 function btn_next_Clik() {
     alert(arr_courses[0].questions.length)
     alert(arr_courses[0].videos.length)
 
+=======
+var x=0;
+function btn_next_Clik()
+{   
+    // alert(arr_courses[0].questions.length)
+    // alert(arr_courses[0].videos.length)
+ 
+>>>>>>> 8847550a4bc700f0c8985d06299dbf09b27881b5
 
-    var preview = document.querySelector('video');
+    // var preview = document.querySelector('video');
 
+<<<<<<< HEAD
     if (x < arr_courses[0].videos.length) {
         var file = arr_courses[0].videos[x];
         x++;
@@ -175,4 +198,31 @@ function btn_next_Clik() {
 
 
 
+=======
+    // if(x<arr_courses[0].videos.length)
+    // {
+    //     var file = arr_courses[0].videos[x];
+    //     x++;
+    //     var reader  = new FileReader();
+    //     reader.onloadend = function ()
+    //     {
+    //     preview.src = reader.result;
+    //     }
+    //     if (file) 
+    //     {
+    //     reader.readAsDataURL(file);
+    //     } 
+    //     else 
+    //     {
+    //     preview.src = "";
+    //     }
+    // }
+    // else
+    // {
+    //     x=0;
+    // }
+  
+     
+    
+>>>>>>> 8847550a4bc700f0c8985d06299dbf09b27881b5
 }
