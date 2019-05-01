@@ -733,6 +733,13 @@
         color: #fff;
         text-align: center;
         font-size: 50px;
+        margin-left: -726px;
+    }
+    
+    .pragraph-head {
+        color: white;
+        margin-left: -243px;
+        font-size: 18px;
     }
     
     .navbar-nav>li:hover>a {
@@ -741,6 +748,21 @@
     
     .banner {
         min-height: 200px;
+        background-attachment: scroll;
+        background-position: center center;
+        background-repeat: no-repeat;
+        -webkit-background-size: cover !important;
+        -moz-background-size: cover !important;
+        -o-background-size: cover !important;
+        background-size: cover !important;
+        display: block;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+    }
+    
+    .banner1 {
+        min-height: 500px;
         background-attachment: scroll;
         background-position: center center;
         background-repeat: no-repeat;
@@ -1041,4 +1063,55 @@
     
     .buttonsDiv {
         margin: 100px;
+    }
+    /*  */
+    
+    .section {
+        padding: 60px 0;
+        position: relative;
+    }
+    
+    .bgw {
+        background-color: #ffffff;
+    }
+    
+    .bgd .section-title-2 h2 {
+        color: #fff;
+    }
+    
+    .breadcrumb li,
+    .section-title-2 .lead,
+    .contact-details h2,
+    .testi-item .lead,
+    small {
+        font-family: 'Droid Serif', serif;
+    }
+    
+    #bbpress-forums ul.bbp-forums,
+    #bbpress-forums ul.bbp-lead-topic,
+    #bbpress-forums ul.bbp-replies,
+    #bbpress-forums ul.bbp-topics {
+        margin: 0;
+    }
+    
+    .section-title-2 .lead {
+        font-size: 14px !important;
+        font-style: italic;
+    }
+    
+    .paralbackground .section-title-2 .lead,
+    .paralbackground .section-title-2 h2 {
+        color: #ffffff !important;
+    }
+    
+    .testi-item .lead {
+        margin: 20px auto !important;
+        line-height: 2;
+        font-size: 16px;
+        font-weight: 500;
+        font-style: italic;
+        max-width: 800px !important;
+        padding: 0 !important;
+        text-transform: none;
+        color: #ffffff;
     }
