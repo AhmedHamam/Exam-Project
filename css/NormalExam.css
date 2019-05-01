@@ -1115,3 +1115,98 @@
         text-transform: none;
         color: #ffffff;
     }
+    
+    .owl-carousel.owl-loaded {
+        display: block;
+    }
+    
+    .owl-carousel {
+        display: none;
+        width: 100%;
+        -webkit-tap-highlight-color: transparent;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .owl-carousel .owl-stage-outer {
+        position: relative;
+        overflow: hidden;
+        -webkit-transform: translate3d(0px, 0px, 0px);
+    }
+    
+    .nav-center .owl-controls {
+        position: relative !important;
+        left: 0;
+        right: 0;
+        width: 60px;
+        margin: 20px auto 0;
+    }
+    
+    .owl-theme .owl-controls {
+        margin-top: 10px;
+        text-align: center;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    .owl-controls {
+        position: absolute;
+        left: auto;
+        top: -16.5%;
+        right: 0;
+    }
+    
+    .owl-carousel .owl-item {
+        position: relative;
+        min-height: 1px;
+        float: left;
+        -webkit-backface-visibility: hidden;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    
+    .entry {
+        position: relative;
+        padding: 0 !important;
+        margin-bottom: 0;
+    }
+    
+    .magnifier {
+        position: absolute;
+        top: 0;
+        cursor: pointer;
+        background: -moz-linear-gradient(45deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+        background: -webkit-linear-gradient(45deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+        background: linear-gradient(45deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+        filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000', GradientType=1);
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 1;
+        zoom: 1;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        -webkit-transition: all .3s ease-in-out;
+        -moz-transition: all .3s ease-in-out;
+        -ms-transition: all .3s ease-in-out;
+        -o-transition: all .3s ease-in-out;
+        transition: all .3s ease-in-out;
+    }
+    
+    .carousel-control .fa:hover {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+    
+    .boxes:hover .magnifier,
+    .entry:hover .magnifier {
+        zoom: 1;
+        filter: alpha(opacity=100);
+        opacity: 1;
+    }
+    
+    .entry:hover .shop-bottom {
+        top: 50%;
+    }
