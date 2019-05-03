@@ -138,10 +138,10 @@
                         <input type="number" id="txt_num_videos" name="vidTxt" class="form-control" />
                     </div>
                     <div class="form-group">
-                        <button type="button" id="btn_add_question" class="btn btn-primary" data-toggle="modal" data-target="#questions">Add Question</button>
+                        <button type="button" id="btn_add_qusetion" class="btn btn-primary" data-toggle="modal" data-target="#model_questions">Add Question</button>
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-success" id="btn_save">Save</button>
+                        <button class="btn btn-success" id="btn_save_course">Save</button>
                     </div>
                 </div>
             </div>
@@ -186,7 +186,7 @@
 
     <!-- ----------------------------------------------model add question---------------------------------- -->
 
-    <div class="modal fade" id="questions" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="model_questions" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -197,38 +197,38 @@
                     <div class="modal-body">
                         <div class="md-form mb-5">
                             <label data-error="wrong" data-success="right" for="defaultForm-email">Question</label>
-                            <input type="text" class="form-control validate">
+                            <input type="text" class="form-control validate txt_question_data">
                         </div>
                         <div class="md-form mb-5">
                             <label data-error="wrong" data-success="right" for="defaultForm-email">Choice one</label>
-                            <input type="text" class="form-control validate">
+                            <input type="text" class="form-control validate txt_question_data">
                         </div>
                         <div class="md-form mb-4">
                             <label data-error="wrong" data-success="right" for="defaultForm-pass">Choice two </label>
-                            <input type="text" class="form-control validate">
+                            <input type="text" class="form-control validate txt_question_data">
                         </div>
                         <div class="md-form mb-5">
                             <label data-error="wrong" data-success="right" for="defaultForm-email">Choice three </label>
-                            <input type="text" class="form-control validate">
+                            <input type="text" class="form-control validate txt_question_data">
                         </div>
                         <div class="md-form mb-4">
                             <label data-error="wrong" data-success="right" for="defaultForm-pass">Choice four </label>
-                            <input type="text" class="form-control validate">
+                            <input type="text" class="form-control validate txt_question_data">
                         </div>
                         <div class="md-form mb-4">
                             <label data-error="wrong" data-success="right" for="defaultForm-pass">Answer </label>
                             <!-- <input type="text" class="form-control validate"> -->
-                            <select class="form-control validate">
-                                <option value="0">Choice 1</option>
-                                <option value="1">Choice 2</option>
-                                <option value="2">Choice 3</option>
-                                <option value="3">Choice 4</option>
+                            <select class="form-control validate txt_question_data" required>
+                                <option value="1">Choice 1</option>
+                                <option value="2">Choice 2</option>
+                                <option value="3">Choice 3</option>
+                                <option value="4">Choice 4</option>
                               </select>
                         </div>
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        <button class="btn btn-default" id="btn_save_question">Add</button>
+                        <button class="btn btn-default" id="btn_save_qustion">Add</button>
                     </div>
                 </div>
 
