@@ -1514,3 +1514,87 @@
         margin: 0 auto;
         border-color: #f26722!important;
     }
+    
+    .imgCourse {
+        width: 100%;
+        height: 269px;
+    }
+    
+    .btn-course {
+        border: none;
+        width: 93px;
+        height: 38px;
+        border-radius: 19px;
+        background-color: #f26722 !important;
+    }
+    
+    .bottom-grids {
+        background: #fff;
+        padding: 1% 0 3% 0;
+        margin: 0;
+    }
+    
+    .bottom-grid1 {
+        width: 50%;
+        float: left;
+        margin-right: 1.5%;
+        padding: 0 1.5%;
+    }
+    
+    .bottom-grid1 h3,
+    .bottom-grid2 h3,
+    .bottom-grid3 h3 {
+        color: #363638;
+        font-family: 'Open Sans', sans-serif;
+        padding: 15px 0px 15px 0px;
+        border-bottom: 1px solid #E9E9E9;
+        margin-bottom: 13px;
+        text-transform: uppercase;
+        font-size: 1.1em;
+        font-weight: normal;
+    }
+    
+    ol,
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .bottom-grid1 ul li {
+        padding-bottom: 5px;
+    }
+    
+    .bottom-grid1 ul li a {
+        color: #999;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        line-height: 1.8em;
+        transition: 0.5s ease;
+        -o-transition: 0.5s ease;
+        -webkit-transition: 0.5s ease;
+        vertical-align: top;
+    }
+    
+    .imgmarker {
+        max-width: 100%;
+    }
+    
+    .clear {
+        clear: both;
+    }
+    
+    .bottom-grid2 ul li img {
+        display: block;
+    }
+    
+    .bottom-grid2 {
+        float: left;
+        width: 38%;
+        margin-right: 3%;
+    }
+    
+    .bottom-grid2 ul li {
+        display: inline-block;
+        width: 32.555%;
+    }
