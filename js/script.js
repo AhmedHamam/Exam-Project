@@ -35,7 +35,7 @@ $(document).ready(function() {
         profile.css("display", "")
         UserName.css("display", "")
         var userObject = JSON.parse(sessionStorage.getItem("userSession"));
-        $('#userNameHeader').html("Welcome " + userObject.map(a => a.Name))
+        $('#userNameHeader').html("<span id='welcome'>Welcome<span> " + "<span id='nameUser'>" + userObject.map(a => a.Name) + "</span> ")
         $('#userName').html(userObject.map(a => a.Name));
         $('#userEmail').html(userObject.map(a => a.Email));
 
@@ -60,46 +60,44 @@ $(document).ready(function() {
         $('#myModalLogin').modal('show')
     });
     btnLogin.click(function() {
-
+        var Saved = JSON.parse(localStorage.getItem('users'));
         if (txt_EmailLogin.val() == '') {
             toastr.error("Email is Required", "Ops !!");
         } else if (txt_PasswordLogin.val() == '') {
             toastr.error("Password is Required", "Ops !!");
+        } else if (Saved == null) {
+            toastr.error("Ypu Must Sign Up First ", "Opps !!");
+
         } else {
-            var Saved = JSON.parse(localStorage.getItem('users'));
-            if (Saved == null) {
-                toastr.error("Ypu Must Sign Up First ", "Opps !!");
+            for (var i = 0; i < Saved.length; i++) {
+                loginStatus = false;
+                // console.log(Saved[i].map(a => a.Email))
+                if (txt_EmailLogin.val() == Saved[i].map(a => a.Email) &&
+                    txt_PasswordLogin.val() == Saved[i].map(a => a.Password)) {
+                    loginStatus = true;
+                    $('#myModalLogin').modal('hide');
+                    toastr.success("Login Successfully", "Done");
+                    sessionStorage.setItem("userSession", JSON.stringify(Saved[i]));
+                    sessionStorage.setItem("loginStatus", loginStatus);
+                    showModelLogin.css("display", "none");
+                    showModelSignUp.css("display", "none")
+                    LoginOut.css("display", "")
+                    profile.css("display", "")
+                    window.location.reload();
 
-            } else {
-                for (var i = 0; i < Saved.length; i++) {
-                    loginStatus = false;
-                    // console.log(Saved[i].map(a => a.Email))
-                    if (txt_EmailLogin.val() == Saved[i].map(a => a.Email) &&
-                        txt_PasswordLogin.val() == Saved[i].map(a => a.Password)) {
-                        loginStatus = true;
-                        $('#myModalLogin').modal('hide');
-                        toastr.success("Login Successfully", "Done");
-                        sessionStorage.setItem("userSession", JSON.stringify(Saved[i]));
-                        sessionStorage.setItem("loginStatus", loginStatus);
-                        showModelLogin.css("display", "none");
-                        showModelSignUp.css("display", "none")
-                        LoginOut.css("display", "")
-                        profile.css("display", "")
-                        window.location.reload();
-
-                        break;
-                    }
-
-
+                    break;
                 }
+
+
                 console.log(loginStatus)
             }
             if (loginStatus == false) {
                 toastr.error("User Name Or Password InValid ", "Opps !!");
-                // alert("User Name Or Password InValid")
             }
-
+            // alert("User Name Or Password InValid")
         }
+
+
 
     })
 
