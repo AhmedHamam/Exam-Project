@@ -71,6 +71,7 @@ $(document).ready(function() {
                         loginStatus = true;
                         $('#myModalLogin').modal('hide');
                         toastr.success("Login Successfully", "Done");
+                        sessionStorage.setItem("userSession", JSON.stringify(Saved[i]));
                         sessionStorage.setItem("loginStatus", loginStatus);
                         showModelLogin.css("display", "none");
                         showModelSignUp.css("display", "none")
@@ -153,6 +154,8 @@ $(document).ready(function() {
                             $('#myModalSignUp').modal('hide');
                             toastr.success("Sign Up  Successfully", "Done");
                             loginStatus = true;
+
+                            sessionStorage.setItem("userSession", JSON.stringify(userObject));
                             sessionStorage.setItem("loginStatus", loginStatus);
 
                             showModelLogin.css("display", "none");
