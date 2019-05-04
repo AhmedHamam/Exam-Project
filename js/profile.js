@@ -4,7 +4,7 @@ $(document).ready(function() {
     $('#userNameHeader').html("Welcome " + userObject.map(a => a.Name))
     $('#userName').html(userObject.map(a => a.Name));
     $('#userEmail').html(userObject.map(a => a.Email));
-    var StudentCourse = JSON.parse(sessionStorage.getItem("student_course"));
+    var StudentCourse = JSON.parse(localStorage.getItem("student_course"));
     var Courses = JSON.parse(localStorage.getItem("courses"));
     for (let i = 0; i < StudentCourse.length; i++) {
 
