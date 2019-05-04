@@ -50,7 +50,13 @@ $(document).ready(function() {
 
 function applyClick() {
     // console.log((this.id).substring(3, this.id.length))
-    var id = Courses[parseInt((this.id).substring(3, this.id.length))].id;
-    window.location.href = "../html/"
-    window.open("exam.html#" + id)
+
+    if (sessionStorage.getItem("loginStatus") == 'true') {
+        var id = Courses[parseInt((this.id).substring(3, this.id.length))].id;
+        window.location.href = "../html/"
+        window.open("exam.html#" + id)
+    } else {
+        $('#myModalLogin').modal('show');
+    }
+
 }
