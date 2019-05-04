@@ -10,7 +10,7 @@ var st_id=0;
 window.onload=function()
 {
     st_id = JSON.parse(sessionStorage.getItem("userSession"))[0].Id;
-    alert(st_id)
+
     div_questions=document.getElementById("div_questions");
     btn_Submit=document.getElementById("btn_Submit");
     var pagelink=window.location.href.split("#")
@@ -125,7 +125,7 @@ function btn_Submit_click()
     {
         "s_id": st_id, 
         "c_id": cr_id, 
-        "grade": (score*100)
+        "grade": (score/corect_answers.length)*100+"%"
     }
     var arr_st_courses=JSON.parse(localStorage.getItem("student_course"));
     if(arr_st_courses==null)
