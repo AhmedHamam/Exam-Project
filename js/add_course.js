@@ -159,7 +159,7 @@ window.onload = function()
                 "Brk",
                 "Ln"
                 ],
-                "answer": 1
+                "answer": 2
     
             },
             {
@@ -310,7 +310,7 @@ window.onload = function()
                 "Brk",
                 "Ln"
                 ],
-                "answer": 1
+                "answer": 2
     
             },
             {
