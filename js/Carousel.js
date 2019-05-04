@@ -1,34 +1,9 @@
-// JavaScript Document
-/******************************************
-    File Name: plugins.js
-    Template Name: Teach Me
-    Created By: Show WP Team
-    Envato Profile: http://themeforest.net/user/wordpressshowcase
-    Website: https://showwp.com
-    Version: 1.0
-    Support: wordpressshowcasecom@gmail.com
-/******************************************/
-
 (function($) {
     "use strict";
 
 
 
 
-    /* ==============================================
-    BACK TOP
-    =============================================== */
-    jQuery(window).scroll(function() {
-        if (jQuery(this).scrollTop() > 1) {
-            jQuery('.dmtop').css({ bottom: "25px" });
-        } else {
-            jQuery('.dmtop').css({ bottom: "-100px" });
-        }
-    });
-    jQuery('.dmtop').click(function() {
-        jQuery('html, body').animate({ scrollTop: '0px' }, 800);
-        return false;
-    });
 
 
     /************************************************
@@ -456,62 +431,3 @@ function(t, e, i, s) {
         for (s in Object.getOwnPropertyNames(this)) "function" != typeof this[s] && (this[s] = null)
     }, t.fn.owlCarousel.Constructor.Plugins.Hash = n
 }(window.Zepto || window.jQuery, window, document);
-
-$('#owl-services').owlCarousel({
-    loop: true,
-    margin: 30,
-    nav: true,
-    dots: false,
-    responsive: {
-        0: {
-            items: 1
-        },
-        600: {
-            items: 2
-        },
-        1100: {
-            items: 4
-        },
-        1200: {
-            items: 4
-        }
-    }
-})
-$('#owl-client').owlCarousel({
-    loop: true,
-    margin: 30,
-    autoplay: true,
-    autoplayTimeout: 3000,
-    autoplayHoverPause: true,
-    nav: false,
-    dots: false,
-    responsive: {
-        0: {
-            items: 2
-        },
-        600: {
-            items: 4
-        },
-        1000: {
-            items: 5
-        }
-    }
-})
-
-$('#owl-testimonial-2').owlCarousel({
-    loop: true,
-    margin: 30,
-    nav: true,
-    dots: false,
-    responsive: {
-        0: {
-            items: 1
-        },
-        600: {
-            items: 1
-        },
-        1000: {
-            items: 1
-        }
-    }
-})

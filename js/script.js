@@ -257,6 +257,80 @@ $(document).ready(function() {
 
 
 
+$(window).scroll(function() {
+    if ($(this).scrollTop() > 1) {
+        $('.dmtop').css({ bottom: "25px" });
+    } else {
+        $('.dmtop').css({ bottom: "-100px" });
+    }
+    $('.dmtop').on('click', function() {
+        $('html, body').animate({ scrollTop: '0px' }, 800);
+        return false;
+    });
+
+});
+
+// OUR SLIDERS
+$('#owl-services').owlCarousel({
+    loop: true,
+    margin: 30,
+    nav: true,
+    dots: false,
+    responsive: {
+        0: {
+            items: 1
+        },
+        600: {
+            items: 2
+        },
+        1100: {
+            items: 4
+        },
+        1200: {
+            items: 4
+        }
+    }
+})
+$('#owl-client').owlCarousel({
+    loop: true,
+    margin: 30,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
+    nav: false,
+    dots: false,
+    responsive: {
+        0: {
+            items: 2
+        },
+        600: {
+            items: 4
+        },
+        1000: {
+            items: 5
+        }
+    }
+})
+
+$('#owl-testimonial-2').owlCarousel({
+    loop: true,
+    margin: 30,
+    nav: true,
+    dots: false,
+    responsive: {
+        0: {
+            items: 1
+        },
+        600: {
+            items: 1
+        },
+        1000: {
+            items: 1
+        }
+    }
+})
+
+
 
 
 
