@@ -376,7 +376,8 @@ window.onload = function()
         txt_course_title.value="";
         txt_num_videos.value="";
        // toastr.success("Course added Successfully", "Done");
-        window.open('Exam.html', '_self',"asd");
+        // window.open('Exam.html#'+course.title, '_self');
+        window.open('Exam.html#4', '_self');
         // alert("btn_save_course_click")
     }
     function btn_save_qustion_click()
