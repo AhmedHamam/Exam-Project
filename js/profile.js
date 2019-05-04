@@ -1,7 +1,8 @@
 $(document).ready(function() {
     var userObject = JSON.parse(sessionStorage.getItem("userSession"));
     var table;
-    $('#userNameHeader').html("Welcome " + userObject.map(a => a.Name))
+    $('#userNameHeader').html("<span id='welcome'>Welcome<span> " + "<span id='nameUser'>" + userObject.map(a => a.Name) + "</span> ")
+
     $('#userName').html(userObject.map(a => a.Name));
     $('#userEmail').html(userObject.map(a => a.Email));
     var StudentCourse = JSON.parse(localStorage.getItem("student_course"));
