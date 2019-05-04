@@ -1676,3 +1676,11 @@ ul {
     color: white;
     margin-left: 158px;
 }
+
+#userNameHeader {
+    padding: 0;
+    margin: 0;
+    color: #555;
+    font-size: 15px;
+    font-weight: bold;
+}

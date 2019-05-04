@@ -16,7 +16,9 @@
     <script src="../js/toastr.min.js"></script>
 
 
+    <script src="../js/Carousel.js"></script>
     <script src="../js/script.js"></script>
+    <script src="../js/profile.js"></script>
 
 
 </head>
@@ -27,6 +29,7 @@
             <div class="row">
                 <div class="col-md-6 col-sm-12 text-left">
                     <div class="topmenu">
+                        <span class="hidden-xs"><i class="fa "></i> <a id="userNameHeader" style="display:none" > </a></span>
                         <span class="hidden-xs"><i class="fa "></i> <a  id="LoginOut" style="display:none"> LogOut</a></span>
                         <span class="hidden-xs"><i class="fa "></i> <a  id="showmodalLogin"> Login</a></span>
                         <span class="hidden-xs"><i class="fa "></i> <a id="showmodalSignup" >Register</a></span>
@@ -142,8 +145,8 @@
                                             </a>
                                         </div>
                                         <div class="author-title desc">
-                                            <h4><a href="member-profile.html">John DOE</a></h4>
-                                            <a class="authorlink" href="https://showwp.com">https://showwp.com</a>
+                                            <h4 id='userName'> </h4>
+                                            <a class="authorlink" id='userEmail'></a>
                                             <ul class="list-inline social-small">
                                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -170,30 +173,13 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">User Name</th>
+                    <th scope="col">Course Name</th>
+                    <th scope="col">Grade</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+            <tbody id="content">
+
             </tbody>
         </table>
 

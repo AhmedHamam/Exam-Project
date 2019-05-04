@@ -16,7 +16,7 @@ $(document).ready(function() {
     // LoginOut
     var LoginOut = $('#LoginOut');
     var profile = $('#profile');
-
+    var UserName = $('#userNameHeader');
     // End SignUp
     // json Array of User
     var usersJson = [];
@@ -30,7 +30,11 @@ $(document).ready(function() {
         showModelSignUp.css("display", "none")
         LoginOut.css("display", "")
         profile.css("display", "")
-
+        UserName.css("display", "")
+        var userObject = JSON.parse(sessionStorage.getItem("userSession"));
+        $('#userNameHeader').html("Welcome " + userObject.map(a => a.Name))
+        $('#userName').html(userObject.map(a => a.Name));
+        $('#userEmail').html(userObject.map(a => a.Email));
 
 
     } else {
@@ -38,6 +42,7 @@ $(document).ready(function() {
         showModelSignUp.css("display", "")
         LoginOut.css("display", "none")
         profile.css("display", "none")
+        UserName.css("display", "none")
 
     }
     LoginOut.click(function() {
@@ -180,7 +185,7 @@ $(document).ready(function() {
 
 
 
-    $('#courseName').html(courseName);
+    // $('#courseName').html(courseName);
 
     //Fill Question In HTML
     var questionhtml = document.querySelectorAll('.question-content');
