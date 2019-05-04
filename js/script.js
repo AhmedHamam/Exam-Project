@@ -54,9 +54,9 @@ $(document).ready(function() {
     btnLogin.click(function() {
 
         if (txt_EmailLogin.val() == '') {
-            alert('Email is Required');
+            toastr.error("Email is Required", "Ops !!");
         } else if (txt_PasswordLogin.val() == '') {
-            alert('Password is Required')
+            toastr.error("Password is Required", "Ops !!");
         } else {
             var Saved = JSON.parse(localStorage.getItem('users'));
             if (Saved == null) {
@@ -93,69 +93,80 @@ $(document).ready(function() {
 
     })
 
+    function validateEmail(email) {
+        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+    }
     showModelSignUp.click(function() {
         $('#myModalSignUp').modal('show')
     });
     btnSignUp.click(function() {
         if (txt_NameSignUp.val() == '') {
-            alert('Name is Required');
+            toastr.error("Name Is Required", "Ops !!");
         } else if (txt_EmailSignUp.val() == '') {
-            alert('Email is Required')
+
+            toastr.error("Email is Required", "Ops !!");
         } else if (txt_PasswordSignUp.val() == '') {
 
-            alert('Password is Required')
+            toastr.error("Password is Required", "Ops !!");
         } else if (txt_FileUpload.val() == '') {
-            alert('Image is Required')
+            toastr.error("Image is Required", "Ops !!");
         } else {
-            var Saved = JSON.parse(localStorage.getItem('users'));
+            if (validateEmail(txt_EmailSignUp.val())) {
 
-            if (Saved == null) {
-                userObject = [{
-                    'Id': usersJson.length + 1,
-                    'Name': txt_NameSignUp.val(),
-                    'Email': txt_EmailSignUp.val(),
-                    'Password': txt_PasswordSignUp.val(),
-                    'Image': txt_FileUpload.val()
-                }]
-                usersJson.push(userObject);
-                localStorage.setItem('users', JSON.stringify(usersJson));
-                $('#myModalSignUp').modal('hide');
-                toastr.success("Sign Up  Successfully", "Done");
-            } else {
-                userObject = [{
-                    'Id': Saved.length + 1,
-                    'Name': txt_NameSignUp.val(),
-                    'Email': txt_EmailSignUp.val(),
-                    'Password': txt_PasswordSignUp.val(),
-                    'Image': txt_FileUpload.val()
-                }]
-                for (var i = 0; i < Saved.length; i++) {
-                    console.log(txt_EmailSignUp.val());
-                    console.log(Saved[i].map(a => a.Email));
-                    // console.log(txt_EmailSignUp.val());
-                    if (txt_EmailSignUp.val() == Saved[i].map(a => a.Email)) {
+                var Saved = JSON.parse(localStorage.getItem('users'));
+
+                if (Saved == null) {
+                    userObject = [{
+                        'Id': usersJson.length + 1,
+                        'Name': txt_NameSignUp.val(),
+                        'Email': txt_EmailSignUp.val(),
+                        'Password': txt_PasswordSignUp.val(),
+                        'Image': txt_FileUpload.val()
+                    }]
+                    usersJson.push(userObject);
+                    localStorage.setItem('users', JSON.stringify(usersJson));
+                    $('#myModalSignUp').modal('hide');
+                    toastr.success("Sign Up  Successfully", "Done");
+                } else {
+                    userObject = [{
+                        'Id': Saved.length + 1,
+                        'Name': txt_NameSignUp.val(),
+                        'Email': txt_EmailSignUp.val(),
+                        'Password': txt_PasswordSignUp.val(),
+                        'Image': txt_FileUpload.val()
+                    }]
+                    for (var i = 0; i < Saved.length; i++) {
                         console.log(txt_EmailSignUp.val());
-                        console.log(Saved[i].Email);
-                        toastr.error("Sign Up  Error", "Ops !!");
-                        txt_EmailSignUp.val('');
-                        break;
-                    } else {
-                        Saved.push(userObject);
-                        // Put the object into storage
-                        localStorage.setItem('users', JSON.stringify(Saved));
-                        $('#myModalSignUp').modal('hide');
-                        toastr.success("Sign Up  Successfully", "Done");
-                        loginStatus = true;
-                        sessionStorage.setItem("loginStatus", loginStatus);
+                        console.log(Saved[i].map(a => a.Email));
+                        // console.log(txt_EmailSignUp.val());
+                        if (txt_EmailSignUp.val() == Saved[i].map(a => a.Email)) {
+                            console.log(txt_EmailSignUp.val());
+                            console.log(Saved[i].Email);
+                            toastr.error("Sign Up  Error", "Ops !!");
+                            txt_EmailSignUp.val('');
+                            break;
+                        } else {
+                            Saved.push(userObject);
+                            // Put the object into storage
+                            localStorage.setItem('users', JSON.stringify(Saved));
+                            $('#myModalSignUp').modal('hide');
+                            toastr.success("Sign Up  Successfully", "Done");
+                            loginStatus = true;
+                            sessionStorage.setItem("loginStatus", loginStatus);
 
-                        showModelLogin.css("display", "none");
-                        showModelSignUp.css("display", "none")
-                        LoginOut.css("display", "")
-                        profile.css("display", "")
-                        break;
+                            showModelLogin.css("display", "none");
+                            showModelSignUp.css("display", "none")
+                            LoginOut.css("display", "")
+                            profile.css("display", "")
+                            break;
+                        }
                     }
+
                 }
 
+            } else {
+                toastr.error("You must Enter A Vaild Email", "Ops !!");
             }
 
 

@@ -1589,3 +1589,90 @@ ul {
     display: inline-block;
     width: 32.555%;
 }
+
+
+/* .bgg {
+    background-color: #f4f4f7;
+} */
+
+.litpadtop {
+    padding-top: 0 !important;
+}
+
+.nopad {
+    padding: 0;
+}
+
+@media (min-width: 992px) {
+    .col-md-12 {
+        width: 100%;
+    }
+}
+
+.member-cover {
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.lightoverlay {
+    height: 280px;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.member-cover .authorbox {
+    bottom: 20px;
+    display: inline-block;
+    left: 20px;
+    margin: 0 auto;
+    max-width: 400px;
+    padding: 20px;
+    position: absolute;
+    width: auto;
+}
+
+.authorbox .avatar-author {
+    float: left;
+    width: 80px;
+    margin-top: 10px;
+}
+
+.member-cover .authorbox a {
+    color: #222222;
+}
+
+.authorbox .desc {
+    font-size: 12px;
+    margin-left: 100px;
+}
+
+.authorbox h4 {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.member-cover .authorbox a {
+    color: #222222;
+}
+
+.authorlink {
+    display: block;
+    color: #999;
+    font-style: italic;
+    font-family: 'Droid Serif', serif;
+    margin-bottom: 5px;
+}
+
+.authorbox .social-small {
+    margin-bottom: 0;
+}
+
+.list-inline>li {
+    padding: 0 !important;
+}
+
+.table {
+    width: 77%;
+    background: black;
+    color: white;
+    margin-left: 158px;
+}
