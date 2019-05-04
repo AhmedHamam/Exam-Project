@@ -1,10 +1,12 @@
 var arr_courses=[];
+var answers_value=[];
 var course=null;
 var div_questions;
+var btn_Submit;
 window.onload=function()
 {
     div_questions=document.getElementById("div_questions");
-    
+    btn_Submit=document.getElementById("btn_Submit");
     var pagelink=window.location.href.split("#")
     if(pagelink.length>1)
     {
@@ -23,16 +25,15 @@ window.onload=function()
             for(var i=0;i<course.questions.length;i++)
             {
                 show_qustion_in_page(course.questions[i])
-                alert("next")
             }
         }
-
     }
     else
     {
         alert("cannot open this window")
         window.close();
     }
+    btn_Submit.onclick=btn_Submit_click;
 
 }
 function  show_qustion_in_page(q)
@@ -42,18 +43,62 @@ function  show_qustion_in_page(q)
         '<div class="col-md-12 col-sm-12 margin ">'+
             '<div class="text-left">'+
                 '<span class="question"> Question '+q.id+'</span> <span class="delemeter">|</span>'+
-                '<span class="question-content"> '+q.question+' ?.</span>'+
+                '<span class="question-content"> '+q.question+' ?</span>'+
             '</div>'+
         '</div>'+
     '</div>'+
     '<div class="row m_l">'+
         '<div class="quiz" id="quiz" data-toggle="buttons">'+
-            '<label class="  btn btn-lg btn-primary btn-block  answer0"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="1">'+q.choice[0]+'</label>'+
-            '<label class="  btn btn-lg btn-primary btn-block  answer0"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="2">'+q.choice[1]+'</label>'+
-            '<label class="  btn btn-lg btn-primary btn-block  answer0"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="3">'+q.choice[2]+'</label>'+
-            '<label class="  btn btn-lg btn-primary btn-block  answer0"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="4">'+q.choice[3]+'</label>'+
+            '<label class="  btn btn-lg btn-primary btn-block choice "value="1"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="1">'+q.choice[0]+'</label>'+
+            '<label class="  btn btn-lg btn-primary btn-block choice "value="2"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="2">'+q.choice[1]+'</label>'+
+            '<label class="  btn btn-lg btn-primary btn-block choice "value="3"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="3">'+q.choice[2]+'</label>'+
+            '<label class="  btn btn-lg btn-primary btn-block choice "value="4"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="4">'+q.choice[3]+'</label>'+
         '</div>'+
     '</div>'+
 '</div>';
-div_questions.innerHTML=x;
+div_questions.innerHTML+=x;
+}
+function btn_Submit_click()
+{
+    answers_value=[];
+
+    var answers=document.querySelectorAll(".choice");
+
+    alert(answers[0].className)
+    var active;
+    var found=false;
+    
+    for(var i=0;i<answers.length;i+=4)
+    {
+        found=false;
+        
+        for(var j=i;j<i+4;j++)
+        {
+            active=answers[j].className.split(" ");
+            if(active[active.length-1]=="active")
+            {
+                found=true;
+                
+                answers_value.push(answers[j].value)
+                break;
+            }
+            
+            
+        }
+        if(!found)
+        {
+            answers_value.push(0)
+        }
+    }
+    alert(answers_value.length)
+    if(answers.length<course.questions.length)
+    {
+        // alert("bad boy")
+    }
+    else
+    {
+        // alert("good boy");
+        // for(var i=0;i<course.questions.length;i++)
+        
+    }
 }

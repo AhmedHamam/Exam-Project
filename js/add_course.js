@@ -6,6 +6,7 @@ var course =
 {
     "id": 1,
     "title": "",
+    "desc":"",
     "questions": [],
     "videos": [],
     "image":""
@@ -25,6 +26,7 @@ var btn_save_qustion;
 var txt_course_title;
 var txt_num_videos;
 var txt_question_data;
+var txt_course_desc;
 var div_questions;
 //=======================================================window load================================================
 window.onload = function() 
@@ -34,6 +36,7 @@ window.onload = function()
     btn_save_qustion=document.getElementById("btn_save_qustion");
     txt_course_title=document.getElementById("txt_course_title");
     txt_num_videos=document.getElementById("txt_num_videos");
+    txt_course_desc=document.getElementById("txt_course_desc");
     txt_question_data=document.querySelectorAll(".txt_question_data");
     div_questions=document.getElementById("div_questions");
     arr_courses = JSON.parse(localStorage.getItem('courses'));
@@ -43,6 +46,7 @@ window.onload = function()
         arr_courses=[];
         course=new Object();
         course.title= "HTML Course";
+        course.desc="There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised believable. Suffered alteration in some form, by injected humour, or randomised There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised believable. Suffered alteration in some form, by injected humour, or"
         arr_qustions = 
         [
             {
@@ -193,6 +197,7 @@ window.onload = function()
         course=new Object();
         course.id=arr_courses.length+1;
         course.title= "HTML5 Course";
+        course.desc="There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised believable. Suffered alteration in some form, by injected humour, or randomised There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised believable. Suffered alteration in some form, by injected humour, or"
         arr_qustions = 
         [
             {
@@ -371,10 +376,12 @@ window.onload = function()
         course.image="images/"+txt_course_title.value+".jpg";
         course.questions=arr_qustions;
         course.videos=arr_course_videos;
+        course.desc=txt_course_desc.value;
         arr_courses.push(course);
         localStorage.setItem("courses", JSON.stringify(arr_courses));
         txt_course_title.value="";
         txt_num_videos.value="";
+        txt_course_desc.value="";
        // toastr.success("Course added Successfully", "Done");
         // window.open('Exam.html#'+course.title, '_self');
         window.open('Exam.html#4', '_self');
