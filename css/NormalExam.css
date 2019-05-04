@@ -1690,3 +1690,10 @@ hr.invis3 {
     margin: 50px 0;
     border: 1px #eee solid;
 }
+
+.btn_saveControl {
+    border: 0;
+    margin-right: 152px;
+    font-size: 24px;
+    color: black !important;
+}
