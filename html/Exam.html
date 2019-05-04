@@ -1,0 +1,224 @@
+<!Doctype html>
+<html>
+
+<head>
+    <title>Add Course</title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/toastr.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- <link href="../css/font-awesome.min.css" rel="stylesheet"> -->
+   
+    <link href="../css/add_course.css" rel="stylesheet" />
+    <script src="../js/toastr.min.js"></script>
+    <!----------------------------------- static courses ---------------->
+    <!-- <script src="../js/QuestionData.js"></script> -->
+
+    <script src="../js/Exam.js"></script>
+    <!-- <script src="../js/choose.js"></script> -->
+
+</head>
+
+<body>
+    <!-- ==================================Top Bar ==============================-->
+    <div class="topbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-12 text-left">
+                    <div class="topmenu">
+                        <span class="hidden-xs"><i class="fa "></i> <a  id="LoginOut" style="display:none"> LogOut</a></span>
+                        <span class="hidden-xs"><i class="fa "></i> <a  id="showmodalLogin"> Login</a></span>
+                        <span class="hidden-xs"><i class="fa "></i> <a id="showmodalSignup" >Register</a></span>
+                        <span class="hidden-xs"><i class="fa"></i><a href="Profile.html"  id="profile"  style="display:none">Profile</a></span>
+                    </div>
+                    <!-- end callus -->
+                </div>
+                <div class="col-md-6 col-sm-12 text-right">
+                    <div class="social-icons">
+                        <ul class="list-inline">
+                            <li class="facebook"><a data-toggle="tooltip" data-placement="bottom" title="" href="#" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                            <li class="google"><a data-toggle="tooltip" data-placement="bottom" title="" href="#" data-original-title="Google Plus"><i class="fa fa-google-plus"></i></a></li>
+                            <li class="twitter"><a data-toggle="tooltip" data-placement="bottom" title="" href="#" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                            <li class="linkedin"><a data-toggle="tooltip" data-placement="bottom" title="" href="#" data-original-title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                            <li class="pinterest"><a data-toggle="tooltip" data-placement="bottom" title="" href="#" data-original-title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
+                            <li class="skype"><a data-toggle="tooltip" data-placement="bottom" title="" href="#" data-original-title="Skype"><i class="fa fa-skype"></i></a></li>
+                            <li class="youtube"><a data-toggle="tooltip" data-placement="bottom" title="" href="#" data-original-title="Youtube"><i class="fa fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                    <!-- end social icons -->
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end topbar -->
+    </div>
+    <!-- ==================================Header ==============================-->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar navbar-default yamm">
+                <div class="container">
+                    <div class="navbar-header col-md-3">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="Home.html"><img src="../images/logo.png"></a>
+
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse col-md-9">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="Home.html">Home</a>
+                            </li>
+                            <li class="dropdown has-submenu">
+                                <a href="CoursesPage.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Courses <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="CoursesPage.html">Html Course</a></li>
+                                    <li><a href="CoursesPage.html">Css Course</a></li>
+                                    <li><a href="CoursesPage.html">Bootstrap Course</a></li>
+                                    <li><a href="CoursesPage.html">JavaScript Course</a></li>
+                                </ul>
+                            </li>
+                            <li class=""><a href="About.html">About </a></li>
+                            <li class=""><a href="../html/Help.html">Help</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown cartmenu searchmenu hasmenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search"></i></a>
+                                <ul class="dropdown-menu show-right col-md-6">
+                                    <li div class="">
+                                        <div id="custom-search-input">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control input-lg" placeholder="Search here...">
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-primary btn-lg" type="button">
+                                                        <i class="fa fa-search"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--/.nav-collapse -->
+                </div>
+                <!--/.container-fluid -->
+            </nav>
+            <!-- end nav -->
+        </div>
+        <!-- end container -->
+    </header>
+    <!-- ==================================Banner ==============================-->
+    <section class="section paralbackground banner" style="background-image:url('../images/pagebanner_02.jpg');" data-img-width="2400" data-img-height="907" data-diff="100">
+        <div class="overlay"></div>
+        <div class="col-md-offset-3 col-md-6">
+            <h2 class="my-page-title">Add Course</h2>
+        </div>
+    </section>
+ <!-- ======================================== -->
+ <div class="container" >
+        <div class="row" id="div_questions">
+        
+        </div>
+    </div>
+    <!-- ================================================Copy rights======================================================== -->
+    <div class="topbar copyrights">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-12 text-left ">
+                    <div class="topmenu">
+                        <span><i class="fa fa-home"></i> <a href="Home.html">Home</a></span>
+                        <span><a href="About.html">About us</a></span>
+                        <span><a href="Help.html">Help</a></span>
+                        <span><a href="Courses.html">Courses</a></span>
+                    </div>
+                    <!-- end callus -->
+                </div>
+
+                <div class="col-md-6 col-sm-12 text-right">
+                    <div class="social-icons">
+                        <ul class="list-inline">
+                            <li class="facebook"><a data-toggle="tooltip" data-placement="top" title="Facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li class="google"><a data-toggle="tooltip" data-placement="top" title="Google Plus" href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li class="twitter"><a data-toggle="tooltip" data-placement="top" title="Twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li class="linkedin"><a data-toggle="tooltip" data-placement="top" title="Linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li class="pinterest"><a data-toggle="tooltip" data-placement="top" title="Pinterest" href="#"><i class="fa fa-pinterest"></i></a></li>
+                            <li class="skype"><a data-toggle="tooltip" data-placement="top" title="Skype" href="#"><i class="fa fa-skype"></i></a></li>
+                            <li class="youtube"><a data-toggle="tooltip" data-placement="top" title="Youtube" href="#"><i class="fa fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                    <!-- end social icons -->
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end topbar -->
+    </div>
+    <!-- ======================================================================================================== -->
+  
+
+    <!-- ----------------------------------------------model add question---------------------------------- -->
+
+    <div class="modal fade" id="model_questions" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">Add Question</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-body">
+                        <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right" for="defaultForm-email">Question</label>
+                            <input type="text" class="form-control validate txt_question_data">
+                        </div>
+                        <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right" for="defaultForm-email">Choice one</label>
+                            <input type="text" class="form-control validate txt_question_data">
+                        </div>
+                        <div class="md-form mb-4">
+                            <label data-error="wrong" data-success="right" for="defaultForm-pass">Choice two </label>
+                            <input type="text" class="form-control validate txt_question_data">
+                        </div>
+                        <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right" for="defaultForm-email">Choice three </label>
+                            <input type="text" class="form-control validate txt_question_data">
+                        </div>
+                        <div class="md-form mb-4">
+                            <label data-error="wrong" data-success="right" for="defaultForm-pass">Choice four </label>
+                            <input type="text" class="form-control validate txt_question_data">
+                        </div>
+                        <div class="md-form mb-4">
+                            <label data-error="wrong" data-success="right" for="defaultForm-pass">Answer </label>
+                            <!-- <input type="text" class="form-control validate"> -->
+                            <select class="form-control validate txt_question_data" required>
+                                <option value="1">Choice 1</option>
+                                <option value="2">Choice 2</option>
+                                <option value="3">Choice 3</option>
+                                <option value="4">Choice 4</option>
+                              </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-default" id="btn_save_qustion">Add</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="dmtop">Scroll to Top</div>
+</body>
+
+</html>

@@ -353,26 +353,6 @@ window.onload = function()
 
     function btn_add_qusetion_click()
     {   
-//         div_questions.innerHtml+='<div class="col-md-10">'+
-//         '<div class="row">'+
-//         '<div class="col-md-12 col-sm-12 margin ">'+
-//             '<div class="text-left">'+
-//                 '<span class="question"> Question </span> <span class="delemeter">|</span>'+
-//                 '<span class="question-content">  ?.</span>'+
-//             '</div>'+
-//         '</div>'+
-//     '</div>'+
-//     '<div class="row m_l">'+
-//         '<div class="quiz" id="quiz" data-toggle="buttons">'+
-//             '<label class="  btn btn-lg btn-primary btn-block  answer0"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="1"></label>'+
-//             '<label class="  btn btn-lg btn-primary btn-block  answer0"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="2">2 Two</label>'+
-//             '<label class="  btn btn-lg btn-primary btn-block  answer0"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="3">3 Three</label>'+
-//             '<label class="  btn btn-lg btn-primary btn-block  answer0"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="4">4 Four</label>'+
-//         '</div>'+
-//     '</div>'+
-// '</div>';
-
-
 
             //  alert("btn_save_course_click")
     }
@@ -396,7 +376,7 @@ window.onload = function()
         txt_course_title.value="";
         txt_num_videos.value="";
        // toastr.success("Course added Successfully", "Done");
-        document.open('https://www.codexworld.com', '_blank');
+        window.open('Exam.html', '_self',"asd");
         // alert("btn_save_course_click")
     }
     function btn_save_qustion_click()
