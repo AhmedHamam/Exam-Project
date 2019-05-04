@@ -38,12 +38,13 @@ $(document).ready(function() {
         showModelSignUp.css("display", "")
         LoginOut.css("display", "none")
         profile.css("display", "none")
-            // window.location.href="../html/Home.html";
+
     }
     LoginOut.click(function() {
         loginStatus = false;
         sessionStorage.setItem("loginStatus", loginStatus);
-        window.location.reload();
+        window.location.href = "../html/Home.html";
+        // window.location.reload();
 
 
     })
@@ -249,7 +250,11 @@ $(document).ready(function() {
 
     })
 
+
+
+
 });
+
 
 
 
