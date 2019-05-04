@@ -5,7 +5,7 @@ $(document).ready(function() {
     var btnLogin = $('#btnLogin');
     var showModelLogin = $('#showmodalLogin');
     // end Login
-
+    var btn_RegisterCreate = $('#btn_RegisterCreate');
     // SignUp
     var txt_NameSignUp = $('#txt_NameSignUp');
     var txt_EmailSignUp = $('#txt_EmailSignUp');
@@ -25,7 +25,7 @@ $(document).ready(function() {
     // Login Status
     var loginStatus = false;
     if (sessionStorage.getItem("loginStatus") == 'true') {
-
+        btn_RegisterCreate.css("display", "none")
         showModelLogin.css("display", "none");
         showModelSignUp.css("display", "none")
         LoginOut.css("display", "")
@@ -82,6 +82,7 @@ $(document).ready(function() {
                         showModelSignUp.css("display", "none")
                         LoginOut.css("display", "")
                         profile.css("display", "")
+                        window.location.reload();
 
                         break;
                     }
@@ -131,9 +132,18 @@ $(document).ready(function() {
                         'Image': txt_FileUpload.val()
                     }]
                     usersJson.push(userObject);
+                    loginStatus = true;
+
+                    sessionStorage.setItem("userSession", JSON.stringify(userObject));
+                    sessionStorage.setItem("loginStatus", loginStatus);
                     localStorage.setItem('users', JSON.stringify(usersJson));
                     $('#myModalSignUp').modal('hide');
                     toastr.success("Sign Up  Successfully", "Done");
+                    showModelLogin.css("display", "none");
+                    showModelSignUp.css("display", "none")
+                    LoginOut.css("display", "")
+                    profile.css("display", "")
+                    window.location.reload();
                 } else {
                     userObject = [{
                         'Id': Saved.length + 1,
@@ -167,6 +177,8 @@ $(document).ready(function() {
                             showModelSignUp.css("display", "none")
                             LoginOut.css("display", "")
                             profile.css("display", "")
+                            window.location.reload();
+
                             break;
                         }
                     }
@@ -269,7 +281,10 @@ $(document).ready(function() {
 
     })
 
-
+    var btn_RegisterCreate = $('#btn_RegisterCreate');
+    btn_RegisterCreate.click(function() {
+        $('#myModalSignUp').modal('show');
+    })
 
 
 });
