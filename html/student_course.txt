@@ -1,0 +1,8 @@
+ {s_id: 1, c_id: 1, grade: 90}
+c_id: 1
+grade: 90
+s_id: 1
+1: {s_id: 1, c_id: 2, grade: 90}
+c_id: 2
+grade: 90
+s_id: 1
