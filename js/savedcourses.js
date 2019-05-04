@@ -1,6 +1,6 @@
 function add_saved_course()
 {
-if(arr_courses==null)
+if(arr_courses==null||arr_courses.length<1)
 {
     arr_courses=[];
     course=new Object();

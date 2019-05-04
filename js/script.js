@@ -1,4 +1,7 @@
+var arr_courses = [];
 $(document).ready(function() {
+    arr_courses = JSON.parse(localStorage.getItem('courses'));
+    add_saved_course();
     //   Login
     var txt_EmailLogin = $('#emailLogin');
     var txt_PasswordLogin = $('#passwordLogin');
