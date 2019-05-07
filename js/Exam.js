@@ -7,6 +7,7 @@ var div_questions;
 var btn_Submit;
 var cr_id=0;
 var st_id=0;
+var timeoutHandle;
 window.onload=function()
 {
     st_id = JSON.parse(sessionStorage.getItem("userSession"))[0].Id;
@@ -44,7 +45,43 @@ window.onload=function()
     }
   
     btn_Submit.onclick=btn_Submit_click;
-
+    
+    function countdown(minutes) 
+    {
+        var seconds = 60;
+        var mins = minutes
+        function tick()
+        {
+            var counter = document.getElementById("timer");
+            var current_minutes = mins - 1
+            seconds--;
+            counter.innerHTML =
+                current_minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
+            if (seconds > 0) 
+            {
+                timeoutHandle = setTimeout(tick, 1000);
+            }
+            else if(mins > 1)
+            {
+                setTimeout(function () { countdown(mins - 1); }, 1000);
+            }
+           
+            else if (mins == 1 && seconds == 0)
+            {
+                btn_Submit_click();
+            }
+            if (mins == 1 && seconds < 10)
+            {
+                counter.style.color="red";
+            }
+    }
+        tick();
+    }
+    countdown(1);
+    // }
+    $('#btn_backtoHome').click(function(){
+        window.location.href="../html/home.html";
+    })
 }
 function  show_qustion_in_page(q)
 {
@@ -119,6 +156,7 @@ function btn_Submit_click()
         k++;
     } 
     toastr.success(score, "Done");
+    $('#lbl_degree').html(score+"0%")
     $('label.btn').attr('disabled','disabled');
     $('#btn_Submit').attr('disabled','disabled');
     var st_course=
@@ -133,7 +171,9 @@ function btn_Submit_click()
         arr_st_courses=[]
     }
     arr_st_courses.push(st_course);
+    window.clearTimeout(timeoutHandle);
     localStorage.setItem("student_course",JSON.stringify(arr_st_courses));
-    window.open("Profile.html","self");
+    $('#myModalDetails').modal('show');
+    // window.open("Profile.html","_self");
 
 }

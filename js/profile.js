@@ -1,11 +1,12 @@
+var userObject;var StudentCourse;
 $(document).ready(function() {
-    var userObject = JSON.parse(sessionStorage.getItem("userSession"));
+    userObject = JSON.parse(sessionStorage.getItem("userSession"));
     var table;
     $('#userNameHeader').html("<span id='welcome'>Welcome<span> " + "<span id='nameUser'>" + userObject.map(a => a.Name) + "</span> ")
 
     $('#userName').html(userObject.map(a => a.Name));
     $('#userEmail').html(userObject.map(a => a.Email));
-    var StudentCourse = JSON.parse(localStorage.getItem("student_course"));
+    StudentCourse = JSON.parse(localStorage.getItem("student_course"));
     var Courses = JSON.parse(localStorage.getItem("courses"));
     for (let i = 0; i < StudentCourse.length; i++) {
 
@@ -35,4 +36,15 @@ $(document).ready(function() {
     }
     $('#content').append(table);
 
+
+
+    //=========================================
+    var myConfig = {"type":"line","series":[{"values":[20,40,25,50,15,45,33,34]},{"values":[5,30,21,18,59,50,28,33]},{"values":[30,5,18,21,33,41,29,15]} ] };
+ 
+zingchart.render({ 
+	id : 'chart', 
+	data : myConfig, 
+	height: "100%", 
+	width: "100%" 
+});
 })
